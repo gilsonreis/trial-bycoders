@@ -8,8 +8,9 @@ use App\UseCases\Users\ChangeUserPasswordUseCase;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Attributes\Title;
 use Livewire\Component;
-
+#[Title('Change Password')]
 class ChangePassword extends Component
 {
     use LivewireAlert;
