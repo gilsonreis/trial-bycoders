@@ -9,6 +9,32 @@
     font-size: 100%;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     height: 100%;
+}
+
+.group-error {
+    input,
+    textarea,
+    select {
+        border-color: #dc3545;
+        background-color: #fcdfdf;
+        color: #dc3545;
+    }
+
+    label {
+        color: #dc3545;
+    }
+
+    input + span::before,
+    textarea + span::before,
+    select + span::before {
+        color: #dc3545;
+        font-size: .8rem;
+        padding-right: 5px;
+    }
 }
