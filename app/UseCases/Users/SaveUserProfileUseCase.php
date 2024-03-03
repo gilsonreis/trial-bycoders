@@ -15,6 +15,9 @@ class SaveUserProfileUseCase
     {
     }
 
+    /**
+     * @throws UseCaseException
+     */
     public function handle(array $userProfile, int $userId): bool
     {
         $user = [

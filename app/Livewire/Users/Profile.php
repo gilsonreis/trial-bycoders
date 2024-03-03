@@ -6,12 +6,15 @@ use App\Exceptions\UseCaseException;
 use App\Livewire\Forms\Users\ProfileForm;
 use App\UseCases\Users\SaveUserProfileUseCase;
 use Illuminate\Support\Facades\Auth;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
 #[Title('Profile')]
 class Profile extends Component
 {
+    use LivewireAlert;
+
     public ProfileForm $form;
 
     public function mount()
@@ -31,9 +34,18 @@ class Profile extends Component
         $this->validate();
         try {
             $saveUserProfileUseCase->handle($this->form->all(), Auth::user()->id);
-            session()->flash('success', 'User Profile successfully updated.');
+            $this->flash(
+                'success',
+                'All done!',
+                ['text' => 'User profile successfully updated.'],
+                route('dashboard')
+            );
         } catch (UseCaseException $exception) {
-            $this->addError('exception', $exception->getMessage());
+            $this->alert(
+                'error',
+                'Oppsss!',
+                ['text' => $exception->getMessage()]
+            );
         }
 
     }

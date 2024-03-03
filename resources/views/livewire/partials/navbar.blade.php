@@ -22,6 +22,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="{{ route('users.profile') }}" wire:navigate>Profile</a></li>
+                        <li><a class="dropdown-item" href="{{ route('users.change-password') }}" wire:navigate>Change password</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="#">Logout</a></li>
                     </ul>

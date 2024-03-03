@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\{Auth\Login, Dashboard, Users\Profile};
+use App\Livewire\{Auth\Login, Dashboard, Users\ChangePassword, Users\Profile};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +25,8 @@ Route::prefix('auth')->name('auth.')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
 
-    Route::prefix('users')->name('users.')->group(function () {
+    Route::prefix('user')->name('users.')->group(function () {
         Route::get('profile', Profile::class)->name('profile');
+        Route::get('change-password', ChangePassword::class)->name('change-password');
     });
 });
