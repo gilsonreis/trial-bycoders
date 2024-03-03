@@ -4,16 +4,17 @@
     <h5 class="text-center">Enter your email and password to access the dashboard.</h5>
     @error('auth_failed')
     <div class="alert alert-danger text-center mt-2">{{ $message }}</div>
+
     @enderror
-    <div class="form-group">
+    <div class="form-group @error('form.email')group-error @enderror">
         <label for="email"><strong>E-mail</strong></label>
         <input type="text" name="email" id="email" class="form-control form-control-lg" wire:model.lazy="form.email">
-        @error('form.email') <span class="error">{{ $message }}</span> @enderror
+        @error('form.email') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
-    <div class="form-group mt-3">
+    <div class="form-group mt-3 @error('form.password')group-error @enderror">
         <label for="password"><strong>Password</strong></label>
-        <input type="text" name="password" id="password" class="form-control form-control-lg" wire:model.lazy="form.password">
-        @error('form.password') <span class="error">{{ $message }}</span> @enderror
+        <input type="password" name="password" id="password" class="form-control form-control-lg" wire:model.lazy="form.password">
+        @error('form.password') <span class="text-danger">{{ $message }}</span> @enderror
     </div>
     <hr>
     <button class="btn btn-primary btn-lg w-100" type="submit">Sign in</button>
