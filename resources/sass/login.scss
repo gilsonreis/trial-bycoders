@@ -1,0 +1,24 @@
+body {
+    background-color: #845ec2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container-login {
+        background-color: #d2d3d3;
+        min-height: 30%;
+        width: 20%;
+        padding: 2rem;
+
+        .login-title {
+            text-align: center;
+        }
+
+        .form-login {
+            .error {
+                font-size: .8rem;
+                color: #e04025;
+            }
+        }
+    }
+}
