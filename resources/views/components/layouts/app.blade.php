@@ -8,7 +8,7 @@
         @vite(['resources/sass/app.scss', 'resources/sass/dashboard.scss', 'resources/js/app.js'])
     </head>
     <body class="d-flex flex-column h-100">
-    <livewire:partials.navbar />
+    <livewire:partials.navbar :page="$title" />
     <div class="container">
         <main class="px-3 py-4 mt-4 rounded-2 bg-light">
             {{ $slot }}
