@@ -13,6 +13,11 @@
         <main class="px-3 py-4 mt-4 rounded-2 bg-light">
             {{ $slot }}
         </main>
+
+        @livewireScripts
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
+        <x-livewire-alert::flash />
     </div>
     <footer class="text-center footer mt-auto py-3 bg-light font-monospace">Copyright © {{ date('Y') }} - Sales Board - All rights reserved.</footer>
     </body>
