@@ -14,7 +14,7 @@ class Index extends Component
 {
     use WithPagination;
 
-    #[Url(keep: true)]
+    #[Url()]
     public ?string $search = null;
 
     public function render(ListAllUsersUseCase $listAllUsersUseCase)

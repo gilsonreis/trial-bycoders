@@ -9,4 +9,8 @@ interface UserRepositoryInterface
     public function changeUserPassword(string $newPassword, int $userId): bool;
 
     public function listAll(?string $search = null);
+
+    public function createNewUser(array $user): bool;
+
+
 }

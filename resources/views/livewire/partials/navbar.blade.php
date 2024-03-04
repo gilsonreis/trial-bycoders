@@ -12,7 +12,7 @@
                     <a class="nav-link @if($page === 'Dashboard') active @endif " aria-current="page" href="{{ route('dashboard') }}" wire:navigate>Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link @if($page === 'List Users') active @endif " href="{{ route('users.index') }}" wire:navigate>Users</a>
+                    <a class="nav-link @if(in_array($page, ['List Users', 'Create new User'])) active @endif" href="{{ route('users.index') }}" wire:navigate>Users</a>
                 </li>
             </ul>
             <ul class="navbar-nav">

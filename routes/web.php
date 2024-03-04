@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\{Auth\Login, Dashboard, Users\ChangePassword, Users\Index, Users\Profile};
+use App\Livewire\{Auth\Login, Dashboard, Users\ChangePassword, Users\Create, Users\Index, Users\Profile};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,5 +32,6 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('users')->name('users.')->group(function () {
         Route::get('/', Index::class)->name('index');
+        Route::get('/create', Create::class)->name('create');
     });
 });

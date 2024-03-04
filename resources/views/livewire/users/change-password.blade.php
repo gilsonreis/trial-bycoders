@@ -10,7 +10,7 @@
             </div>
 
             <div class="mb-3 col-md-6 @error('form.confirmPassword')group-error @enderror">
-                <label for="confirmPassword" class="form-label">Confirme new password</label>
+                <label for="confirmPassword" class="form-label">Confirm new password</label>
                 <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" wire:model.lazy="form.confirmPassword">
                 @error('form.confirmPassword') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
