@@ -13,6 +13,8 @@ class UserInfoFactory extends Factory
 {
     protected $model = UserInfo::class;
 
+
+
     /**
      * Define the model's default state.
      *
