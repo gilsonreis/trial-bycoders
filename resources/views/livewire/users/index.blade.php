@@ -1,7 +1,7 @@
 <div>
     <div class="d-flex justify-content-between page-title">
         <h3>List Users</h3>
-        <a href="" class="btn btn-primary"> <i class="bi bi-plus-circle"></i> Add User</a>
+        <a href="{{ route('users.create') }}" class="btn btn-primary"> <i class="bi bi-plus-circle"></i> Add User</a>
     </div>
     <hr>
     <div class="filter-container d-flex align-items-center mb-3">
@@ -27,10 +27,14 @@
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->userInfo->phone }}</td>
-                    <td>{{ $user->userInfo->city }}</td>
-                    <td>{{ $user->userInfo->state }}</td>
-                    <td></td>
+                    <td>{{ $user->userInfo->phone ?? '-' }}</td>
+                    <td>{{ $user->userInfo->city ?? '-' }}</td>
+                    <td>{{ $user->userInfo->state ?? '-' }}</td>
+                    <td>
+                        <a href="" class="btn btn-warning btn-sm"><i class="bi bi-eye-fill"></i></a>
+                        <a href="" class="btn btn-success btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                        <a href="" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i></a>
+                    </td>
                 </tr>
             @empty
                 <tr>
@@ -42,7 +46,7 @@
         </table>
     </div>
     <hr>
-    <div class="container-pagination d-flex justify-content-between">
+    <div class="container-pagination d-flex justify-content-between align-items-center">
         <div class="">
             <p class="pagination-sumary">Mostrando de {{ (($users->perPage()) * ($users->currentPage() - 1)) + 1 }}
                 até

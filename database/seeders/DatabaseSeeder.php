@@ -51,6 +51,6 @@ class DatabaseSeeder extends Seeder
         $userInfo['user_id'] = $userSavedSeller->id;
         (new UserInfo($userInfo))->save();
 
-        UserInfo::factory(10)->create();
+        UserInfo::factory(100)->create();
     }
 }
