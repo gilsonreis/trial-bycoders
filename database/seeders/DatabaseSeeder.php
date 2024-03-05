@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Sale;
 use App\Models\User;
 use App\Models\UserInfo;
 use Faker\Factory;
@@ -82,5 +83,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+
+        Sale::query()->truncate();
+        Sale::factory(3000)->create();
     }
 }
