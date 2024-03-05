@@ -15,9 +15,12 @@
         </main>
 
         @livewireScripts
+        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
         <x-livewire-alert::flash />
+        <livewire:scripts />
+        @livewireChartsScripts
     </div>
     <footer class="text-center footer mt-auto py-3 bg-light font-monospace">Copyright © {{ date('Y') }} - Sales Board - All rights reserved.</footer>
     </body>

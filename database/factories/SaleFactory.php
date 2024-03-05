@@ -12,7 +12,12 @@ class SaleFactory extends Factory
     public function definition(): array
     {
         return [
-
+            'seller_id' => $this->faker->numberBetween(2, 11),
+            'customer_id' => $this->faker->numberBetween(12, 90),
+            'car_detail_id' => $this->faker->numberBetween(1, 20),
+            'commission' => $this->faker->randomFloat(2, 1000, 2000),
+            'sale_value' => $this->faker->randomFloat(2, 45000, 53000),
+            'status' => $this->faker->randomElement(['in_progress', 'canceled', 'completed'])
         ];
     }
 }
