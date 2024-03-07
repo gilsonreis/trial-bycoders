@@ -12,5 +12,7 @@ interface UserRepositoryInterface
 
     public function createNewUser(array $user): bool;
 
+    public function getAllSellers(): ?array;
+
 
 }

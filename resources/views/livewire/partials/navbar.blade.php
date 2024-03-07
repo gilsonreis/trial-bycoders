@@ -24,7 +24,7 @@
                         <li><a class="dropdown-item @if($page === 'Profile') active @endif" href="{{ route('user.profile') }}" wire:navigate>Profile</a></li>
                         <li><a class="dropdown-item @if($page === 'Change Password') active @endif" href="{{ route('user.change-password') }}" wire:navigate>Change password</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                        <li><livewire:partials.logout /></li>
                     </ul>
                 </li>
             </ul>

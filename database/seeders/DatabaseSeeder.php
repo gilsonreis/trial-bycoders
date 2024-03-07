@@ -11,6 +11,7 @@ use Faker\Generator;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
@@ -84,7 +85,9 @@ class DatabaseSeeder extends Seeder
 
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
 
+        $this->command->info('Inserting sales ... wait a minute');
         Sale::query()->truncate();
-        Sale::factory(3000)->create();
+        Sale::factory(5000)->create();
+        $this->command->info('Done!');
     }
 }
