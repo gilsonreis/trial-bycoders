@@ -2,10 +2,9 @@
 
 namespace App\Livewire\Auth;
 
-use App\Livewire\Forms\LoginForm;
-use App\UseCase\Auth\LoginUseCase;
+use App\Livewire\Forms\Auth\LoginForm;
+use App\UseCases\Auth\LoginUseCase;
 use Illuminate\Http\Request;
-use Livewire\Attributes\Layout;
 use Livewire\Component;
 
 class Login extends Component

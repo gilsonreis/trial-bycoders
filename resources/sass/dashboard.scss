@@ -12,4 +12,33 @@
 
 main {
     border: 1px solid #eeeded;
+
+    .dashboard-numbers {
+        font-size: 2rem;
+    }
+
+    .sub-title-text-small {
+        font-size: 1.3rem;
+    }
+
+    .chart-body {
+        height: 400px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .btn, .btn-group {
+        width: 100%;
+    }
+
+    .page-title, .container-pagination, .chart-title {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filter-container > .search {
+        width: 100%;
+    }
+
 }
