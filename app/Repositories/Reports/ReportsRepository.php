@@ -42,7 +42,7 @@ class ReportsRepository implements ReportsRepositoryInterface
                      users u ON s.seller_id = u.id
                 WHERE DATE_FORMAT(s.created_at, '%Y-%m') = :yearMonth
                   AND s.status = 'completed'
-                GROUP BY s.seller_id
+                GROUP BY s.seller_id, u.name
                 ORDER BY total DESC
                 LIMIT :limit;";
 
@@ -62,7 +62,7 @@ class ReportsRepository implements ReportsRepositoryInterface
                      sales sd ON cd.id = sd.car_detail_id
                 WHERE sd.status = 'completed'
                   AND DATE_FORMAT(sd.created_at, '%Y-%m') = :yearMonth
-                GROUP BY cb.id
+                GROUP BY cb.id, cb.name
                 ORDER BY total DESC
                 LIMIT :limit;";
 
@@ -80,7 +80,7 @@ class ReportsRepository implements ReportsRepositoryInterface
                      sales sd ON cd.id = sd.car_detail_id
                 WHERE sd.status = 'completed'
                   AND DATE_FORMAT(sd.created_at, '%Y-%m') = :yearMonth
-                GROUP BY cm.id
+                GROUP BY cm.id, cm.name
                 ORDER BY total DESC
                 LIMIT :limit;";
 

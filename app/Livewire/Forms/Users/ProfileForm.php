@@ -14,18 +14,18 @@ class ProfileForm extends Form
     public string $email;
 
     #[Validate('required')]
-    public string $address;
+    public ?string $address;
 
     #[Validate('required')]
-    public string $phone;
+    public ?string $phone;
 
     #[Validate('required')]
-    public string $number;
+    public ?string $number;
 
     #[Validate('required')]
-    public string $city;
+    public ?string $city;
 
     #[Validate('required')]
-    public string $state;
+    public ?string $state;
 
 }
