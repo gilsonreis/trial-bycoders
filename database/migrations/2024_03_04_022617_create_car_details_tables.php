@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('car_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('model_id')->constrained('car_models');
-            $table->integer('year');
             $table->string('color');
             $table->decimal('price', 10, 2);
             $table->timestamps();

@@ -15,17 +15,20 @@ class CarModelSeeder extends Seeder
     {
         $carModels = [
             ['name' => 'Camry', 'brand_id' => 1],
-            ['name' => 'Accord', 'brand_id' => 2],
-            ['name' => 'Fusion', 'brand_id' => 3],
+            ['name' => 'Corolla', 'brand_id' => 1],
             ['name' => 'Rav4', 'brand_id' => 1],
+            ['name' => 'Accord', 'brand_id' => 2],
             ['name' => 'Civic', 'brand_id' => 2],
-            ['name' => 'Focus', 'brand_id' => 3],
-            ['name' => 'Corolla', 'brand_id' => 1]
+            ['name' => 'CR-V', 'brand_id' => 2],
+            ['name' => 'Fusion', 'brand_id' => 3],
+            ['name' => 'Escape', 'brand_id' => 3],
+            ['name' => 'Explorer', 'brand_id' => 3],
+            ['name' => 'Mustang', 'brand_id' => 3],
         ];
 
         CarModel::query()->truncate();
 
-        foreach($carModels as $model) {
+        foreach ($carModels as $model) {
             (new CarModel())->fill($model)->save();
         }
 

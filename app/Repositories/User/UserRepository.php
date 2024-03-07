@@ -45,4 +45,12 @@ class UserRepository implements UserRepositoryInterface
         $newUser->fill($user);
         return $newUser->save();
     }
+
+    public function getAllSellers(): ?array
+    {
+        return User::query()
+            ->where('role', 'seller')
+            ->get()
+            ?->toArray();
+    }
 }
