@@ -22,11 +22,11 @@ class Profile extends Component
         $user = Auth::user();
         $this->form->name = $user->name;
         $this->form->email = $user->email;
-        $this->form->phone = $user->userInfo->phone;
-        $this->form->address = $user->userInfo->address;
-        $this->form->number = $user->userInfo->number;
-        $this->form->city = $user->userInfo->city;
-        $this->form->state = $user->userInfo->state;
+        $this->form->phone = $user->userInfo?->phone;
+        $this->form->address = $user->userInfo?->address;
+        $this->form->number = $user->userInfo?->number;
+        $this->form->city = $user->userInfo?->city;
+        $this->form->state = $user->userInfo?->state;
     }
 
     public function saveProfileInfo(SaveUserProfileUseCase $saveUserProfileUseCase)
