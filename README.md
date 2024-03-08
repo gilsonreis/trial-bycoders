@@ -45,7 +45,7 @@ First, download the repository directly from Github.
 
 [https://github.com/gilsonreis/trial-bycoders](https://github.com/gilsonreis/trial-bycoders)
 
-Navigate to the downloaded directory and execute the following commands one by one:
+Navigate to the downloaded directory, clone and rename `.env.example` to `.env` and execute the following commands one by one:
 
 ```bash
 ./vendor/bin/sail composer install
