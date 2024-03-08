@@ -11,6 +11,6 @@ class UserInfo extends Model
 {
     use HasFactory, SoftDeletes, HasRoles;
 
-    protected $fillable = ['phone', 'address', 'number', 'city', 'state'];
+    protected $fillable = ['phone', 'address', 'number', 'city', 'state', 'user_id'];
 
 }
