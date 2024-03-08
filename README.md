@@ -56,7 +56,7 @@ Navigate to the downloaded directory, clone and rename `.env.example` to `.env` 
 ./vendor/bin/sail npm run dev
 ```
 
-## Acessando o dashboard
+## Accessing the dashboard
 
 Users were created using the seeder. By default, use the data from the first user created:
 
