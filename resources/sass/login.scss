@@ -21,5 +21,19 @@ body {
 }
 
 @media (max-width: 768px) {
-    //TODO: Ajustar login para celular
+    body {
+        .container-login {
+            min-height: 50%;
+            width: 90%;
+        }
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    body {
+        .container-login {
+            min-height: 40%;
+            width: 60%;
+        }
+    }
 }
