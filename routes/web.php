@@ -1,6 +1,12 @@
 <?php
 
-use App\Livewire\{Auth\Login, Dashboard, Users\ChangePassword, Users\Create, Users\Index, Users\Profile};
+use App\Livewire\{Auth\Login,
+    Dashboard,
+    Users\ChangePassword,
+    Users\Create,
+    Users\Index as UserIndex,
+    Users\Profile,
+    Sales\Index as SalesIndex};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +37,11 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('users')->name('users.')->group(function () {
-        Route::get('/', Index::class)->name('index');
+        Route::get('/', UserIndex::class)->name('index');
         Route::get('/create', Create::class)->name('create');
+    });
+
+    Route::prefix('sales')->name('sales.')->group(function () {
+        Route::get('/', SalesIndex::class)->name('index');
     });
 });

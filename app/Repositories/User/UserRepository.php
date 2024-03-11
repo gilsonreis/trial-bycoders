@@ -50,6 +50,16 @@ class UserRepository implements UserRepositoryInterface
     {
         return User::query()
             ->where('role', 'seller')
+            ->orderBy('name', 'asc')
+            ->get()
+            ?->toArray();
+    }
+
+    public function getAllCustomers(): ?array
+    {
+        return User::query()
+            ->where('role', 'client')
+            ->orderBy('name', 'asc')
             ->get()
             ?->toArray();
     }
