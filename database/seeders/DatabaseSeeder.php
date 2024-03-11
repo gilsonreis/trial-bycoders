@@ -48,9 +48,32 @@ class DatabaseSeeder extends Seeder
         ];
 
         $userInfo['user_id'] = $userSavedAdmin->id;
-        (new UserInfo($userInfo))->save();
+        (new UserInfo())->fill($userInfo)->save();
 
-        for($i = 1; $i <= 10; $i++) { //create 10 sellers
+        $userSeller = [
+            'name' => 'Joe Seller',
+            'email' => 'seller@admin.com',
+            'password' => Hash::make('password'),
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+            'role' => 'seller'
+        ];
+        $userSavedSeller = new User();
+        $userSavedSeller->fill($userSeller);
+        $userSavedSeller->save();
+
+        $userInfo = [
+            'phone' => $faker->phoneNumber,
+            'address' => $faker->streetAddress,
+            'number' => $faker->buildingNumber,
+            'city' => $faker->city,
+            'state' => $faker->state
+        ];
+
+        $userInfo['user_id'] = $userSavedSeller->id;
+        (new UserInfo())->fill($userInfo)->save();
+
+        for($i = 1; $i <= 10; $i++) {
             $userSeller = [
                 'name' => $faker->name(),
                 'email' => $faker->unique()->safeEmail(),
@@ -72,7 +95,7 @@ class DatabaseSeeder extends Seeder
                 'user_id' => $userSavedSeller->id
             ];
 
-            (new UserInfo($userInfo))->save();
+            (new UserInfo())->fill($userInfo)->save();
         }
 
         UserInfo::factory(100)->create();

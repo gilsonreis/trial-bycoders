@@ -25,6 +25,32 @@ main {
         height: 400px;
     }
 
+    #sales-page {
+
+        .sale-status-canceled {
+            background-color: #ff7f91;
+        }
+
+        .sale-status-completed {
+            background-color: #a7c285;
+        }
+
+        .sale-status-in_progress {
+            background-color: #ffc87f;
+        }
+    }
+
+    #sales-page {
+        .pagination-buttons {
+            width: 100%;
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+    }
+
 }
 
 @media (max-width: 768px) {
@@ -41,4 +67,25 @@ main {
         width: 100%;
     }
 
+    #sales-page {
+        .filter-container {
+            display: flex;
+            flex-direction: column;
+            label {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+        .pagination-links {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    #sales-page {
+        .pagination-buttons {
+            display: none;
+        }
+    }
 }

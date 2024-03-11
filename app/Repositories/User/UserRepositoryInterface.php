@@ -14,5 +14,7 @@ interface UserRepositoryInterface
 
     public function getAllSellers(): ?array;
 
+    public function getAllCustomers(): ?array;
+
 
 }

@@ -1,66 +1,101 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sales Board
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Introduction
+Welcome to SalesBoard, a small sales management system for a car dealership. In SalesBoard, you can view a complete dashboard where you can track your employees' sales in real-time.
 
-## About Laravel
+## Technologies Used
+For the trial, the following technologies were used:
+- PHP 8.3
+- MariaDb 10.11
+- Laravel 10.46
+- Livewire 3
+- Bootstrap 5
+- NodeJS 20.11
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Used Architecture
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Some concepts of SOLID, Clean Arch, and Object Calisthenics were applied.
+The chosen layers for development were:
+### Action
+In this case, it's Livewire component itself, which is called directly by the route. If Livewire is not used,
+an Action would be a class with only one method and the minimum possible business rules. It only serves to
+receive the request and return the response (`__invoke` method) that would be called directly by the route.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Repositories
+Layer responsible for handling the system's data. In our case, it is the layer responsible for connecting to
+the database using Eloquent, Query Builder, or raw SQL. It is ensured through an interface, where
+only the interface is injected into the UseCase layer, decoupling the implementation from the rest of the code.
 
-## Learning Laravel
+### UseCase
+Layer where all the logic and business rules are written. It is a pure class that has no dependencies or ties
+with any external or internal library. Any dependency is injected via interface.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+UseCases are injected directly into the action layer/Livewire component or any other layer, like a console
+or an API endpoint. This way, we can centralize all the business logic in just one layer.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Services
+This is the layer where external services to the framework are located, such as, in our case, generating charts.
+It is also controlled by an interface. This way, if the library needs to be changed, just implement the interface again
+and the rest of the system will not suffer any code refactoring impact.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## How to intall
+To set up in a development environment, Sail was used to create and manage Docker containers. This way, we could optimize the container to run the Laravel application seamlessly.
 
-## Laravel Sponsors
+First, download the repository directly from Github.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+[https://github.com/gilsonreis/trial-bycoders](https://github.com/gilsonreis/trial-bycoders)
 
-### Premium Partners
+Navigate to the downloaded directory, clone and rename `.env.example` to `.env` and execute the following commands one by one:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+./vendor/bin/sail composer install
+./vendor/bin/sail up -d --build
+./vendor/bin/sail artisan migrate
+./vendor/bin/sail db:seed
+./vendor/bin/sail npm install
+./vendor/bin/sail npm run dev
+```
 
-## Contributing
+## Accessing the dashboard
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Users were created using the seeder. By default, use the data from the first user created:
 
-## Code of Conduct
+```
+E-mail: super@admin.com
+Password: password
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+All other users will be created by Faker, and their passwords will be 'password'.
 
-## Security Vulnerabilities
+## Command to update dashboard in real-time
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+A command has been created through the console to update real-time information on the dashboard.
+To do this, run the following command in the terminal:
 
-## License
+```bash
+./vendor/bin/sail php artisan app:insert-sales
+```
+To facilitate the visualization of information on the dashboard, three optional parameters can be used in the above command:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+--time-update[=TIME-UPDATE]        Interval time in seconds to insert each sale. [default: "30"]
+--days[=DAYS]                      Negative days until today to be inserted in sales. Eg. "-10 days". [default: "-30 days"]
+--only-completed[=ONLY-COMPLETED]  Insert sales only completed status. [default: "false"]
+```
+Tip: Providing --days for the beginning of the current month and --only-completed as true will give a better real-time update 
+response on the dashboard. Example:
+```bash
+./vendor/bin/sail php artisan app:insert-sales --days="-11 days" --only-completed=true --time-update=10
+```
+
+## Demo
+A video navigating through the system has been recorded. Here is the link below:
+
+[Link to video from Loom](https://www.loom.com/share/8855a35a499d4fdca9296d4bfd3cb7b0?sid=c8927ea0-e493-4ab3-bb47-3a425f2229bf)
+
+## Possible Improvements
+
+- Implement permissions for screens based on the logged-in user's profile.
+- Improve the organization of Livewire components within Blade.
+- Enhance responsive access by creating at least three page breakpoints.
+- Implement unit and functional tests, at a minimum.
