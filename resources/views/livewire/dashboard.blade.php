@@ -3,29 +3,31 @@
         <h3>Counters</h3>
         <hr>
         <div class="col-md-3">
-            <livewire:partials.dashboard.counters title="Number of sales this month" :value="$qtySalesCurrentMonth" />
+            <livewire:partials.dashboard.counters title="Number of sales this month" :value="$qtySalesCurrentMonth"/>
         </div>
         <div class="col-md-3">
-            <livewire:partials.dashboard.counters title="Total of sales this month" :value="'$ ' . number_format($totalVelueSalesCurrentMonth, 2)" />
+            <livewire:partials.dashboard.counters title="Total of sales this month"
+                                                  :value="'$ ' . number_format($totalVelueSalesCurrentMonth, 2)"/>
         </div>
         <div class="col-md-3">
-            <livewire:partials.dashboard.counters title="Number of sales today" :value="$qtySalesToday" />
+            <livewire:partials.dashboard.counters title="Number of sales today" :value="$qtySalesToday"/>
         </div>
         <div class="col-md-3">
-            <livewire:partials.dashboard.counters title="Total of sales today" :value="'$ ' . number_format($totalVelueSalesToday, 2)" />
+            <livewire:partials.dashboard.counters title="Total of sales today"
+                                                  :value="'$ ' . number_format($totalVelueSalesToday, 2)"/>
         </div>
     </div>
     <div class="row bg-secondary-subtle pt-4 p-3 mt-2 m-4">
         <h3>Rankings - <small class="sub-title-text-small">Current Month</small></h3>
         <hr>
         <div class="col-md-4">
-            <livewire:partials.dashboard.ranking title="Top Sellers" :items="$rankingTopSellers" />
+            <livewire:partials.dashboard.ranking title="Top Sellers" :items="$rankingTopSellers"/>
         </div>
         <div class="col-md-4">
-            <livewire:partials.dashboard.ranking title="Top Car Brands" :items="$rankingTopBrands" />
+            <livewire:partials.dashboard.ranking title="Top Car Brands" :items="$rankingTopBrands"/>
         </div>
         <div class="col-md-4">
-            <livewire:partials.dashboard.ranking title="Top Car Models" :items="$rankingTopModels" />
+            <livewire:partials.dashboard.ranking title="Top Car Models" :items="$rankingTopModels"/>
         </div>
     </div>
     <div class="row bg-secondary-subtle pt-4 p-3 mt-2 m-4">

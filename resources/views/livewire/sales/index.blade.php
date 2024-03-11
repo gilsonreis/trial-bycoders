@@ -100,14 +100,33 @@
     <hr>
     <div class="container-pagination d-flex justify-content-between align-items-center">
         <div class="">
-            <p class="pagination-sumary">Mostrando de {{ (($sales?->perPage()) * ($sales?->currentPage() - 1)) + 1 }}
+            <p class="pagination-sumary">Mostrando de {{ (($sales->perPage()) * ($sales->currentPage() - 1)) + 1 }}
                 até
-                {{ ($sales?->currentPage() === $sales?->lastPage()) ? $sales?->total() : $sales?->perPage() * $sales?->currentPage() }}
-                de {{ $sales?->total() }} registros.
+                {{ ($sales->currentPage() === $sales->lastPage()) ? $sales->total() : $sales->perPage() * $sales->currentPage() }}
+                de {{ $sales->total() }} registros.
             </p>
         </div>
-        <div class="">
-            {{ $sales?->links() }}
+        <div class="pagination-links">
+            {{ $sales->links() }}
+        </div>
+
+        <div class="pagination-buttons">
+            @if ($sales->hasPages())
+                <nav role="navigation" aria-label="Pagination Navigation">
+                    <span>
+                        @if (!$sales->onFirstPage())
+                            <button class="btn btn-secondary" wire:click="previousPage" wire:loading.attr="disabled"
+                                    rel="prev"><i class="bi bi-arrow-left"></i> Previous</button>
+                        @endif
+                    </span>
+                    <span>
+                        @if (!$sales->onLastPage())
+                            <button class="btn btn-secondary" wire:click="nextPage" wire:loading.attr="disabled"
+                                    rel="next">Next <i class="bi bi-arrow-right"></i></button>
+                        @endif
+                    </span>
+                </nav>
+            @endif
         </div>
 
     </div>
