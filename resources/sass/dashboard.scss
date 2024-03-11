@@ -25,6 +25,21 @@ main {
         height: 400px;
     }
 
+    #sales-page {
+
+        .sale-status-canceled {
+            background-color: #ff7f91;
+        }
+
+        .sale-status-completed {
+            background-color: #a7c285;
+        }
+
+        .sale-status-in_progress {
+            background-color: #ffc87f;
+        }
+    }
+
 }
 
 @media (max-width: 768px) {
