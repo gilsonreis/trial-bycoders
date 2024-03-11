@@ -4,7 +4,7 @@
 Welcome to SalesBoard, a small sales management system for a car dealership. In SalesBoard, you can view a complete dashboard where you can track your employees' sales in real-time.
 
 ## Technologies Used
-For the test, the following technologies were used:
+For the trial, the following technologies were used:
 - PHP 8.3
 - MariaDb 10.11
 - Laravel 10.46
@@ -83,5 +83,19 @@ To facilitate the visualization of information on the dashboard, three optional 
 --only-completed[=ONLY-COMPLETED]  Insert sales only completed status. [default: "false"]
 ```
 Tip: Providing --days for the beginning of the current month and --only-completed as true will give a better real-time update 
-response on the dashboard.
+response on the dashboard. Example:
+```bash
+./vendor/bin/sail php artisan app:insert-sales --days="-11 days" --only-completed=true --time-update=10
+```
 
+## Demo
+A video navigating through the system has been recorded. Here is the link below:
+
+[Link to video from Loom](https://www.loom.com/share/8855a35a499d4fdca9296d4bfd3cb7b0?sid=c8927ea0-e493-4ab3-bb47-3a425f2229bf)
+
+## Possible Improvements
+
+- Implement permissions for screens based on the logged-in user's profile.
+- Improve the organization of Livewire components within Blade.
+- Enhance responsive access by creating at least three page breakpoints.
+- Implement unit and functional tests, at a minimum.
